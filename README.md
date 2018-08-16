@@ -10,11 +10,11 @@ definidos nesse proto: `Ping`.
 Testando o `Ping`:
 ```
 $ cd workshop
-$ docker-compose -f server-compose.yml --build
+$ docker-compose -f bank-compose.yml up --build
 
 Em um outro terminal:
 $ cd workshop
-$ docker-compose -f client-compose.yml --build
+$ docker-compose -f client-compose.yml up --build
 
 Saída esperada:
 $ client_1 | text: "pong"
