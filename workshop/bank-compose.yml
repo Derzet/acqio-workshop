@@ -2,6 +2,16 @@ version: "3.4"
 
 services:
 
+  gateway:
+    image: devsu/grpc-gateway
+    volumes:
+      - ./gateway/config.json:/opt/generator/config/config.json
+      - ./protos/:/opt/generator/protos/
+    ports:
+      - 9090:9090
+    networks:
+      - banknet
+
   bank:
     build:
       context: .
