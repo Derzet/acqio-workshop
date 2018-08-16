@@ -42,3 +42,7 @@ Implementar uma interface para cliente REST, utilizando `devsu/grpc-gateway`. O
 usuário deve ser capaz de se comunicar com o servidor através de um REST client,
 ao invés de usar o `client.py`.
 
+## Passo 4:
+Adicionar um Nginx para fazer um reverse proxy. Subir várias instancias do
+serviço Bank, e observar no Kibana o balanceamento de carga feito pelo
+docker.

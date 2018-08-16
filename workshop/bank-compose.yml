@@ -8,7 +8,7 @@ services:
       - ./gateway/config.json:/opt/generator/config/config.json
       - ./protos/:/opt/generator/protos/
     ports:
-      - 9090:9090
+      - 9090
     networks:
       - banknet
 
@@ -49,6 +49,17 @@ services:
       - mongodb
     networks:
       - banknet
+  nginx:
+    build:
+      context: nginx/
+    image: acqio/nginx
+    ports:
+      - "80:80"
+    networks:
+      - banknet
+    depends_on:
+      - mongodb-admin
+      - gateway
 
   logspout:
     build:
