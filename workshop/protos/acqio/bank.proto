@@ -25,15 +25,6 @@ message AddAccountResponse {
   int32 account_id = 3;
 }
 
-message AddBankRequest {
-  string admin_password = 1;
-  string bank_code = 2;
-  string shared_password = 3;
-  string endpoint = 4;
-}
-
-message AddBankResponse {}
-
 message TransferRequest {
   int32 account_id = 1;
   string password = 2;

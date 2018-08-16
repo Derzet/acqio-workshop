@@ -33,3 +33,6 @@ saldo suficiente.
 
 As contas serão armazenadas em memória, e não persistidas.
 
+## Passo 2:
+Utilizar MongoDB para persistir BankAccounts.
+Utilizar Stack ELK para observar logs.
