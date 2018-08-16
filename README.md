@@ -36,3 +36,9 @@ As contas serão armazenadas em memória, e não persistidas.
 ## Passo 2:
 Utilizar MongoDB para persistir BankAccounts.
 Utilizar Stack ELK para observar logs.
+
+## Passo 3:
+Implementar uma interface para cliente REST, utilizando `devsu/grpc-gateway`. O
+usuário deve ser capaz de se comunicar com o servidor através de um REST client,
+ao invés de usar o `client.py`.
+

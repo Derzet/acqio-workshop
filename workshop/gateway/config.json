@@ -1,0 +1,14 @@
+{
+  "gateway": {
+    "listen": ":9090"
+  },
+  "backends": [
+    {
+      "package": "acqio",
+      "backend": "bank:3000",
+      "services": {
+        "Bank": "/bank/"
+      }
+    }
+  ]
+}
