@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+
+  bank:
+    build:
+      context: .
+      dockerfile: bank.Dockerfile
+    image: acqio/bank
+    networks:
+      - banknet
+    ports:
+      - 3000
+
+networks:
+  banknet:
+

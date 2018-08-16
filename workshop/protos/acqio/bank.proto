@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package acqio;
+
+import "google/api/annotations.proto";
+
+message PingRequest {
+  string text = 1;
+}
+message PingResponse {
+  string text = 1;
+}
+
+message AddAccountRequest {
+  string admin_password = 1;
+
+  string fullname = 2;
+  string password = 3;
+  double initial_amount = 4;
+}
+
+message AddAccountResponse {
+  int32 status = 1; // 0 == OK, 1 = Failure.
+  string error = 2;
+  int32 account_id = 3;
+}
+
+message AddBankRequest {
+  string admin_password = 1;
+  string bank_code = 2;
+  string shared_password = 3;
+  string endpoint = 4;
+}
+
+message AddBankResponse {}
+
+message TransferRequest {
+  int32 account_id = 1;
+  string password = 2;
+  double amount = 3;
+
+  string to_bank_code = 4;
+  int32 to_account_id = 5;
+}
+
+message TransferResponse {
+  int32 status = 1;
+  string error = 2;
+}
+
+//-----------------------------------------------------------------------------
+service Bank {
+  rpc Ping(PingRequest) returns (PingResponse) {
+    option (google.api.http) = {
+      post: "/bank/ping"
+      body: "*"
+    };
+  }
+
+  rpc AddAccount(AddAccountRequest) returns (AddAccountResponse) {
+    option (google.api.http) = {
+      post: "/bank/addaccount"
+      body: "*"
+    };
+ }
+
+  rpc Transfer(TransferRequest) returns (TransferResponse) {
+    option (google.api.http) = {
+      post: "/bank/transfer"
+      body: "*"
+    };
+  }
+}
+
