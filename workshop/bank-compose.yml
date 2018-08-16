@@ -40,19 +40,6 @@ services:
     networks:
       - banknet
 
-  logspout:
-    build:
-      context: logspout/
-    image: acqio/logspout
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      ROUTE_URIS: logstash://logstash:5000
-      LOGSTASH_TAGS: elk
-      LOGSPOUT: ignore
-    networks:
-      - elknet
-
 networks:
   banknet:
   # elknet:
