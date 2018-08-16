@@ -10,11 +10,11 @@ definidos nesse proto: `Ping`.
 Testando o `Ping`:
 ```
 $ cd workshop
-$ docker-compose -f server-compose.yml --build
+$ docker-compose -f bank-compose.yml up --build
 
 Em um outro terminal:
 $ cd workshop
-$ docker-compose -f client-compose.yml --build
+$ docker-compose -f client-compose.yml up --build
 
 Saída esperada:
 $ client_1 | text: "pong"
@@ -41,4 +41,14 @@ Utilizar Stack ELK para observar logs.
 Implementar uma interface para cliente REST, utilizando `devsu/grpc-gateway`. O
 usuário deve ser capaz de se comunicar com o servidor através de um REST client,
 ao invés de usar o `client.py`.
+
+## Passo 4:
+Adicionar um Nginx para fazer um reverse proxy. Subir várias instancias do
+serviço Bank, e observar no Kibana o balanceamento de carga feito pelo
+docker.
+
+## Passo 5:
+Definir um novo método no .proto, `Report`, que vai ser capaz de retornar o
+extrato de um cliente, exibindo todas as transações, bem como o saldo final do
+cliente.
 
