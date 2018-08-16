@@ -55,9 +55,9 @@ services:
 
 networks:
   banknet:
-  elknet:
-    external:
-      name: elk_elknet
+  # elknet:
+  #   external:
+  #     name: elk_elknet
 
 volumes:
   mongodb-vol:
